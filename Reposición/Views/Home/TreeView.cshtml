@@ -1,0 +1,36 @@
+﻿@using System.Web.UI.WebControls
+@using Reposición.Models; 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h3>TreeView</h3>
+    @for (int i = 0; i < Methods.TablesList.Count(); i++)
+            {
+                string tableName = Methods.TablesList[i];
+        @Html.ActionLink(tableName, "Table", "Home", new { table = Methods.TablesList[i] }, null);
+        <br />
+
+        List<string> aux = instanceTableColumnsName.Instance.a1[i].Split('»').ToList();
+        for (int a = 0; a < aux.Count(); a++)
+        {
+            @Html.DisplayTextFor(x => aux[a]);
+            <br />
+        }
+
+        <br />
+    }
+
+</div>
+
+
+
+
+
+
+
+
+
+   
+ 
+

@@ -1,0 +1,37 @@
+﻿@using Reposición.Controllers
+@using Reposición.Models
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>MiniSQL</h2>
+<h4>Archivo de Palabras Reservadas</h4>
+@Html.Label("Esta presente el archivo INI")
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>        
+
+        @ViewBag.Message
+
+    </div>
+}
+@Html.Label("Carga Archivo")
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" } ))
+{
+<div>
+    @Html.TextBox("file", "", new { type = "file" }) <br />
+
+    <input type="submit" value="Upload" />
+
+    @ViewBag.Message
+
+</div>
+}
+
+@Html.ActionLink("Lista de Tablas", "treeView")
+<br />
+@Html.ActionLink("Codigo SQL", "viewSQL")
+
+
+
+

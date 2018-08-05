@@ -1,0 +1,23 @@
+﻿@using Reposición.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Codigo SQL</h2>
+@using (Html.BeginForm("syntaxSQL", "Home"))
+{
+        @:Code:
+        <br />            
+        <input type="text" id="code" name="code" style="width: 325px" />
+        <br />               
+        <input type="submit" id="syntaxSQL" value="Cargar" />
+        
+
+
+
+}
+@if (Methods.show)
+{
+    @Html.ActionLink("Select detectado, click para acceder a la tabla","selectTable")
+}
+@ViewBag.Message
+

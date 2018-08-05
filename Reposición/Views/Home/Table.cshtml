@@ -1,0 +1,48 @@
+﻿@using Reposición.Models
+@using Reposición.Controllers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2>Hola Mundo</h2>
+    @ViewBag.Message
+</div>
+
+<table class="table">
+    <tr>
+        @for (int i = 0; i < Methods.CurrentTable.GetColumns().Count(); i++)
+        {
+
+            <th>
+            @Html.DisplayTextFor(item => Methods.CurrentTable.GetColumns()[i].ColumnName)    
+            </th>
+        }
+    </tr>   
+     
+       @for (int i = 0; i < Methods.Rows.Count(); i++)
+       {
+           <tr>
+           @for (int m = 0; m < Methods.Rows[i].Registers.Count(); m++)
+           {
+               if (Methods.Rows[i].Registers[m] != "")
+               {
+                <td>
+                    @Html.DisplayTextFor(x => Methods.Rows[i].Registers[m])
+                    
+                </td>
+               }
+           }
+        </tr>
+       }
+        
+</table>
+@using (Html.BeginForm("exportCSV", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+
+        <input type="submit" value="Upload" />
+
+    </div>
+}

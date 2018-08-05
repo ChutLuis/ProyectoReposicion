@@ -1,0 +1,35 @@
+﻿@using Reposición.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@ViewBag.Title
+<table class="table">
+    <tr>
+        @for (int i = 0; i < Methods.CurrentTable.GetColumns().Count(); i++)
+        {
+
+            <th>
+                @Html.DisplayTextFor(item => Methods.CurrentTable.GetColumns()[i].ColumnName)
+            </th>
+        }
+    </tr>
+
+    @for (int i = 0; i < Methods.Rows.Count(); i++)
+    {
+        <tr>
+            @for (int m = 0; m < Methods.Rows[i].Registers.Count(); m++)
+            {               
+                    <td>
+                        @Html.DisplayTextFor(x => Methods.Rows[i].Registers[m])
+
+                    </td>
+                
+            }
+        </tr>
+    }
+
+</table>
+
+
+
+
