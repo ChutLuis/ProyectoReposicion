@@ -41,7 +41,6 @@ namespace StructurasDeDatos
             {
                 for (int i = 0; i < Sons.Count; i++) //The order specificate count sons maximun could have the node, this spaces fill it with "nulls"
                 {
-                    //solo llene la lista de los hijos y padres porque no se como llenar la del nodo ): en realidad ya no sé xD lo tengo que pensar más a fondo ntt
                     Sons[i] = Factory.makeNull();
                 }
             }
@@ -49,7 +48,6 @@ namespace StructurasDeDatos
             {
                 for (int i = 0; i < Order; i++) //The order specificate count sons maximun could have the node, this spaces fill it with "nulls"
                 {
-                    //solo llene la lista de los hijos y padres porque no se como llenar la del nodo ): en realidad ya no sé xD lo tengo que pensar más a fondo ntt
                     Sons.Add(Factory.makeNull());
                 }
             }
@@ -59,7 +57,6 @@ namespace StructurasDeDatos
         {
             int m = NodeKeys[index].CompareTo(OtherKey);
             return m;
-            //  return NodeKeys[index].CompareTo(OtherKey);
         }
 
         public bool IsLeaf()
